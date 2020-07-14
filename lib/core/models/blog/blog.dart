@@ -24,18 +24,26 @@ class Blog {
   @JsonKey(nullable: false)
   final String content;
 
+  /// The topic or category of the blog.
+  final String topic;
+
+  /// The URL of the thumbnail image of the blog post.
+  final String thumbnail;
+
   /// The date and time the blog was originally created.
   final DateTime dateCreated;
 
   /// The date and time the blog was last updated.
   final DateTime dateUpdated;
 
-  Blog({
+  const Blog({
     this.id,
     @required this.authorId,
     @required this.title,
     this.subtitle,
     @required this.content,
+    this.topic,
+    this.thumbnail,
     this.dateCreated,
     this.dateUpdated,
   })  : assert(authorId != null, 'Author ID must not be null'),

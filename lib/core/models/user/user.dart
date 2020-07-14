@@ -19,11 +19,15 @@ class User {
   @JsonKey(nullable: false)
   final String email;
 
-  User({
+  /// The URL of the profile picture of the user.
+  final String profilePicture;
+
+  const User({
     this.id,
     this.firstName,
     this.lastName,
     @required this.email,
+    this.profilePicture,
   }) : assert(email != null, 'Email must not be null');
 
   /// Creates a [User] instance from its JSON representation.
