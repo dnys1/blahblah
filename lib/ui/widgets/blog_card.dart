@@ -2,8 +2,11 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../../core/models/models.dart';
+import '../views/views.dart';
+import '../helpers.dart';
 import 'responsive_builder.dart';
 
 class BlogCard extends StatelessWidget {
@@ -46,22 +49,28 @@ class BlogCard extends StatelessWidget {
         ],
       );
     }
-    return AspectRatio(
-      aspectRatio: 3,
-      child: Card(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Image.network(blog.thumbnail),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: child,
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).pushNamed(BlogDetailView.route, arguments: blog);
+      },
+      mouseCursor: MaterialStateMouseCursor.clickable,
+      child: AspectRatio(
+        aspectRatio: 3,
+        child: Card(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Image.network(blog.thumbnail),
               ),
-            ),
-          ],
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: child,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -158,6 +167,7 @@ class _AuthorInfo extends StatelessWidget {
       },
       largeBuilder: (context) {
         return ListTile(
+          mouseCursor: MouseCursor.uncontrolled,
           leading: CircleAvatar(
             backgroundImage: NetworkImage(user.profilePicture),
           ),

@@ -1,6 +1,6 @@
 import '../models/blog/blog.dart';
 
-const mockBlogs = [
+final mockBlogs = [
   Blog(
     id: '4b9f7284-0d19-4a4d-bdd0-b1724dcbd999',
     authorId: '07e09240-3f14-4754-9482-69a85419c465',
@@ -131,4 +131,4 @@ Proin condimentum dui sapien, sed mattis sem mattis fermentum. Suspendisse at ju
     thumbnail:
         'https://media.gettyimages.com/photos/lounge-singer-with-microphone-picture-id169956153?s=2048x2048',
   ),
-];
+]..shuffle();

@@ -6,4 +6,6 @@ class UIHelpers {
     DeviceType.tablet: 0.0,
     DeviceType.desktop: 0.0,
   };
+
+  static const scaffoldBreakpoint = 730;
 }

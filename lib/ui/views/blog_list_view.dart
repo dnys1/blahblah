@@ -7,19 +7,17 @@ import '../widgets/blog_card.dart';
 class BlogListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxWidth: 650,
-          ),
-          child: ListView(
-            children: mockBlogs.map((blog) {
-              final user =
-                  mockUsers.firstWhere((user) => blog.authorId == user.id);
-              return BlogCard(blog: blog, user: user);
-            }).toList(),
-          ),
+    return Center(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: 650,
+        ),
+        child: ListView(
+          children: mockBlogs.map((blog) {
+            final user =
+                mockUsers.firstWhere((user) => blog.authorId == user.id);
+            return BlogCard(blog: blog, user: user);
+          }).toList(),
         ),
       ),
     );
@@ -29,8 +27,9 @@ class BlogListView extends StatelessWidget {
 class BlogGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12.0),
+      child: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
             int count = constraints.maxWidth ~/ 650;
